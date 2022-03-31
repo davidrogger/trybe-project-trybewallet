@@ -11,3 +11,29 @@
   justify-content: center;
   width: 100vw;
 }
+
+.main-title {
+  color: #c23616;
+  font-family: Lobster, Pacifico, cursive;
+  font-weight: 600;
+  text-shadow: 1px 1px 0 #192a56;
+}
+
+.header-container {
+  align-items: center;
+  background-color: #273c75;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-container .main-title {
+  margin-left: 10px;
+}
+
+.header-user-info {
+  color: #f5f6fa;
+}
+
+.header-user-info span {
+  margin-right: 20px;
+}
