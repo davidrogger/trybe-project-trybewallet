@@ -1,8 +1,13 @@
 import React from 'react';
+import '../styles/login.css';
 
 class Login extends React.Component {
   render() {
-    return <div>Login</div>;
+    return (
+      <div className="login-container">
+        login
+      </div>
+    );
   }
 }
 

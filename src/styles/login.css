@@ -1,0 +1,9 @@
+.login-container {
+  background-color: #dcdde1;
+  border: 1px solid #273c7593;
+  border-radius: 10px;
+  box-shadow: 5px 10px #718093;
+  box-sizing: border-box;
+  height: 300px;
+  width: 250px;
+}
