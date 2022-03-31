@@ -51,7 +51,7 @@ class Login extends React.Component {
       <div className="main-container">
         <div className="login-container">
 
-          <h1>TrybeWallet</h1>
+          <h1 className="main-title">TrybeWallet</h1>
 
           <div>
             <Input
