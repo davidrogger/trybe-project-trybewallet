@@ -48,38 +48,40 @@ class Login extends React.Component {
   render() {
     const { email, password, btnDisabled } = this.state;
     return (
-      <div className="login-container">
+      <div className="main-container">
+        <div className="login-container">
 
-        <h1>TrybeWallet</h1>
+          <h1>TrybeWallet</h1>
 
-        <div>
-          <Input
-            name="email"
-            type="Text"
-            placeholder="Email"
-            onChange={ this.inputHandler }
-            value={ email }
-          />
+          <div>
+            <Input
+              name="email"
+              type="Text"
+              placeholder="Email"
+              onChange={ this.inputHandler }
+              value={ email }
+            />
 
-          <Input
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={ this.inputHandler }
-            value={ password }
-          />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={ this.inputHandler }
+              value={ password }
+            />
 
-          <div className="d-grid col-6 mx-auto">
-            <button
-              type="button"
-              className="btn btn-warning btn-lg"
-              onClick={ this.loginHandler }
-              disabled={ btnDisabled }
-            >
-              Entrar
+            <div className="d-grid col-6 mx-auto">
+              <button
+                type="button"
+                className="btn btn-warning btn-lg"
+                onClick={ this.loginHandler }
+                disabled={ btnDisabled }
+              >
+                Entrar
 
-            </button>
+              </button>
 
+            </div>
           </div>
         </div>
       </div>
