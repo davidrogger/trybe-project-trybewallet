@@ -10,18 +10,32 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
+      btnDisabled: true,
     };
   }
 
-  loginHandler = ({ target }) => {
+  inputValidation = () => {
+    const { email, password } = this.state;
+
+    const passwordMinLength = 6;
+
+    const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g; // fonte regex https://regexr.com/3e48o
+
+    const emailTest = regex.test(email);
+    const passwordTest = password.length >= passwordMinLength;
+
+    this.setState({ btnDisabled: !(emailTest && passwordTest) });
+  }
+
+  inputHandler = ({ target }) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    });
+    }, () => this.inputValidation());
   }
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, btnDisabled } = this.state;
     return (
       <div className="login-container">
 
@@ -33,7 +47,7 @@ class Login extends React.Component {
             name="email"
             type="Text"
             placeholder="Email"
-            onChange={ this.loginHandler }
+            onChange={ this.inputHandler }
             value={ email }
           />
 
@@ -42,7 +56,7 @@ class Login extends React.Component {
             name="password"
             type="password"
             placeholder="Password"
-            onChange={ this.loginHandler }
+            onChange={ this.inputHandler }
             value={ password }
           />
 
@@ -50,7 +64,7 @@ class Login extends React.Component {
             <button
               type="button"
               className="btn btn-warning btn-lg"
-              // disabled
+              disabled={ btnDisabled }
             >
               Entrar
 
