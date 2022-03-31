@@ -7,6 +7,7 @@ class Input extends Component {
     return (
       <div className="form-floating mb-3">
         <input
+          data-testid={ `${name}-input` }
           name={ name }
           id={ `input-${name}` }
           className="input-user form-control form__input"
