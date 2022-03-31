@@ -20,7 +20,12 @@ class Header extends Component {
           <span>
             Despesa Total:
             {' '}
-            <strong>R$ 0,00 BRL</strong>
+            <strong>
+              R$:
+              {' '}
+              <span data-testid="total-field">0,00</span>
+              <span data-testid="header-currency-field">BRL</span>
+            </strong>
           </span>
         </div>
       </header>
