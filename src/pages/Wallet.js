@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 // import { Redirect } from 'react-router-dom';
+import { fetchAPI } from '../actions';
 
 import Header from '../components/Header';
 
 class Wallet extends React.Component {
+  componentDidMount() {
+    const { getApiResponse } = this.props;
+    getApiResponse();
+  }
+
   render() {
     // const { email } = this.props;
     // const logged = email.length === 0;
@@ -27,4 +33,8 @@ const mapStateToProps = (state) => ({
   email: state.user.email,
 });
 
-export default connect(mapStateToProps)(Wallet);
+const mapDispatchToProps = (dispatch) => ({
+  getApiResponse: () => dispatch(fetchAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
