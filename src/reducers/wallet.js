@@ -1,4 +1,4 @@
-export const GET_WALLET_DATA = 'GET_WALLET_DATA';
+import { GET_CURRENCIES } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -7,9 +7,14 @@ const INITIAL_STATE = {
 
 export const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case GET_WALLET_DATA:
-    return state;
+  case GET_CURRENCIES:
+    return {
+      ...state,
+      currencies: action.currencies,
+    };
   default:
     return state;
   }
 };
+
+export default wallet;

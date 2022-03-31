@@ -1,10 +1,10 @@
-export const GET_USER_EMAIL = 'GET_USER_EMAIL';
+import { GET_USER_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
   email: '',
 };
 
-export const user = (state = INITIAL_STATE, action) => {
+const user = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case GET_USER_EMAIL:
     return {
@@ -15,3 +15,5 @@ export const user = (state = INITIAL_STATE, action) => {
     return state;
   }
 };
+
+export default user;

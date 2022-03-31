@@ -3,7 +3,7 @@ import '../styles/login.css';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import getUserEmail from '../actions';
+import { getUserEmail } from '../actions';
 
 import Input from '../components/Input';
 
