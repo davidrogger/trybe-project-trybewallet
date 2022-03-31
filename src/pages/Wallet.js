@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
+
+import Header from '../components/Header';
 
 class Wallet extends React.Component {
   render() {
-    const { email } = this.props;
-    const logged = email.length === 0;
+    // const { email } = this.props;
+    // const logged = email.length === 0;
 
-    return logged
-      ? <Redirect to="/" />
-      : <div>TrybeWallet</div>;
+    return (
+      <div>
+        <Header />
+      </div>
+    );
   }
 }
 
