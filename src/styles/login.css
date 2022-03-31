@@ -1,9 +1,25 @@
 .login-container {
-  background-color: #dcdde1;
+  align-items: center;
+  background-color: #273c75;
   border: 1px solid #273c7593;
   border-radius: 10px;
-  box-shadow: 5px 10px #718093;
+  box-shadow: 5px 10px #c23616;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   height: 300px;
+  justify-content: space-between;
   width: 250px;
+}
+
+.login-container button {
+  margin-bottom: 10px;
+}
+
+.login-container h1 {
+  color: #c23616;
+  font-family: Lobster, Pacifico, cursive;
+  font-weight: 600;
+  margin-top: 10px;
+  text-shadow: 1px 1px 0 #192a56;
 }
