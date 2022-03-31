@@ -1,9 +1,7 @@
 export const GET_USER_EMAIL = 'GET_USER_EMAIL';
 
 const INITIAL_STATE = {
-  user: {
-    email: '',
-  },
+  email: '',
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
