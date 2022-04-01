@@ -16,6 +16,7 @@ class Expense extends Component {
     super(props);
 
     this.state = {
+      id: 0,
       value: '',
       description: '',
       currency: 'USD',
@@ -33,8 +34,10 @@ class Expense extends Component {
 
   sentExpenseToStore = () => {
     const { addExpenses } = this.props;
-    console.log('vai');
+
     addExpenses('exchangeRates', this.state);
+
+    this.setState((prevState) => ({ id: prevState.id + 1 }));
   }
 
   render() {
