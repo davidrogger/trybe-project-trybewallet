@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import { removeExpense } from '../actions';
+
 class ExpensesTable extends Component {
   renderExpenses = () => {
-    const { expenses } = this.props;
+    const { expenses, removeExpenseById } = this.props;
     return expenses.map(({ id, value, description, currency, method, tag,
       exchangeRates }) => {
       const coin = exchangeRates[currency].name;
@@ -33,6 +35,7 @@ class ExpensesTable extends Component {
               type="button"
               data-testid="delete-btn"
               className="btn btn-outline-danger btn-sm"
+              onClick={ () => removeExpenseById(id) }
             >
               Excluir
 
@@ -75,4 +78,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(ExpensesTable);
+const mapDispatchToProps = (dispatch) => ({
+  removeExpenseById: (id) => dispatch(removeExpense(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);
