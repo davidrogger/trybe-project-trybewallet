@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import Input from './Input';
 
+const METHODS = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
+
 class Expense extends Component {
   constructor(props) {
     super(props);
@@ -25,18 +27,16 @@ class Expense extends Component {
     });
   }
 
-  selectList = (itemList, name) => {
-    return itemList.map((item, index) => (
-      <option
-        key={ `${index}-${item}` }
-        value={ item }
-        name={ name }
-      >
-        {item}
+  selectList = (itemList, name) => itemList.map((item, index) => (
+    <option
+      key={ `${index}-${item}` }
+      value={ item }
+      name={ name }
+    >
+      {item}
 
-      </option>
-    ));
-  }
+    </option>
+  ))
 
   render() {
     const { value, description, currencie, method, category } = this.state;
@@ -59,6 +59,15 @@ class Expense extends Component {
           {this.selectList(currencies, 'currencie')}
         </select>
 
+        <select
+          data-testid="method-input"
+          name="method"
+          value={ method }
+          onChange={ this.inputHandler }
+        >
+          {this.selectList(METHODS, 'method')}
+        </select>
+
         <Input
           name="description"
           type="text"
@@ -66,6 +75,7 @@ class Expense extends Component {
           onChange={ this.inputHandler }
           value={ description }
         />
+
 
       </div>
     );
