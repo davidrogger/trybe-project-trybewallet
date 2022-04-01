@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import { addExpense } from '../actions';
+
 import Input from './Input';
 import Select from './Select';
 
@@ -95,4 +97,8 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
 });
 
-export default connect(mapStateToProps)(Expense);
+const mapDispatchToProps = (dispatch) => ({
+  addExpense: (expense) => dispatch(addExpense(expense)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Expense);
