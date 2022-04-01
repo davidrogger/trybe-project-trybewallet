@@ -74,6 +74,14 @@ class Expense extends Component {
           value={ description }
         />
 
+        <button
+          type="button"
+          className="btn btn-warning"
+        >
+          Adicionar despesa
+
+        </button>
+
       </div>
     );
   }
