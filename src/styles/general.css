@@ -43,3 +43,8 @@
 .header-user-info span {
   margin-right: 20px;
 }
+
+.expense-container select {
+  border-radius: 5px;
+  height: 70%;
+}

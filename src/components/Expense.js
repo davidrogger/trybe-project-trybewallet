@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Input from './Input';
 
 const METHODS = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
+const CATEGORIES = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
 
 class Expense extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Expense extends Component {
     this.state = {
       value: '',
       description: '',
-      currencie: 'USD',
+      currencie: '',
       method: '',
       category: '',
     };
@@ -68,6 +69,14 @@ class Expense extends Component {
           {this.selectList(METHODS, 'method')}
         </select>
 
+        <select
+          name="category"
+          value={ category }
+          onChange={ this.inputHandler }
+        >
+          {this.selectList(CATEGORIES, 'category')}
+        </select>
+
         <Input
           name="description"
           type="text"
@@ -75,7 +84,6 @@ class Expense extends Component {
           onChange={ this.inputHandler }
           value={ description }
         />
-
 
       </div>
     );
