@@ -19,3 +19,7 @@
 .login-container .main-title {
   margin-top: 10px;
 }
+
+.login-container div {
+  margin-bottom: 7px;
+}

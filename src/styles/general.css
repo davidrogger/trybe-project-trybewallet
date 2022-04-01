@@ -19,11 +19,17 @@
   text-shadow: 1px 1px 0 #192a56;
 }
 
-.header-container {
+.header-container , .expense-container {
   align-items: center;
   background-color: #273c75;
   display: flex;
+  height: 80px;
   justify-content: space-between;
+}
+
+.expense-container {
+  background-color: #c23616;
+  height: 80px;
 }
 
 .header-container .main-title {

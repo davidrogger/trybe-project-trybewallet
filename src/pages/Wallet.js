@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { fetchAPI } from '../actions';
 
 import Header from '../components/Header';
+import Expense from '../components/Expense';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -20,6 +21,7 @@ class Wallet extends React.Component {
     return (
       <div>
         <Header />
+        <Expense />
       </div>
     );
   }
