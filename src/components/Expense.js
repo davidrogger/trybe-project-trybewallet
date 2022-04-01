@@ -59,6 +59,14 @@ class Expense extends Component {
           {this.currencieList()}
         </select>
 
+        <Input
+          name="description"
+          type="text"
+          placeholder="Descrição"
+          onChange={ this.inputHandler }
+          value={ description }
+        />
+
       </div>
     );
   }
