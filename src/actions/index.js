@@ -14,13 +14,12 @@ export const fetchAPI = (type, expenseData) => async (dispatch) => {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await response.json();
     const currencies = Object.keys(data).filter((currencie) => currencie !== 'USDT');
-    const exchangeRates = currencies.reduce((acc, codeName) => {
-      const { code, name, ask } = data[codeName];
-      acc[codeName] = { code, name, ask };
-      return acc;
-    }, {});
+    // const exchangeRates = currencies.reduce((acc, codeName) => {
+    //   acc[codeName] = data[codeName];
+    //   return acc;
+    // }, {});
     if (type === 'currencies') return dispatch(getCurrencies(currencies));
-    if (type === 'exchangeRates') return dispatch(addExpense(expenseData, exchangeRates));
+    if (type === 'exchangeRates') return dispatch(addExpense(expenseData, data));
   } catch (error) {
     console.log(`Erro encontrado: ${error}`);
   }

@@ -37,7 +37,11 @@ class Expense extends Component {
 
     addExpenses('exchangeRates', this.state);
 
-    this.setState((prevState) => ({ id: prevState.id + 1 }));
+    this.setState((prevState) => ({
+      id: prevState.id + 1,
+      value: '',
+      description: '',
+    }));
   }
 
   render() {
