@@ -15,6 +15,7 @@
 .main-title {
   color: #c23616;
   font-family: Lobster, Pacifico, cursive;
+  font-size: 55px;
   font-weight: 600;
   text-shadow: 1px 1px 0 #192a56;
 }
@@ -30,6 +31,7 @@
 .expense-container {
   background-color: #c23616;
   height: 80px;
+  justify-content: space-around;
 }
 
 .header-container .main-title {
@@ -44,7 +46,7 @@
   margin-right: 20px;
 }
 
-.expense-container select {
+/* .expense-container select {
   border-radius: 5px;
   height: 70%;
-}
+} */
