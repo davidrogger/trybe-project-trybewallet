@@ -15,7 +15,7 @@
 .main-title {
   color: #c23616;
   font-family: Lobster, Pacifico, cursive;
-  font-size: 55px;
+  font-size: 45px;
   font-weight: 600;
   text-shadow: 1px 1px 0 #192a56;
 }
@@ -44,4 +44,8 @@
 
 .header-user-info span {
   margin-right: 20px;
+}
+
+.tabel-container {
+  text-align: center;
 }

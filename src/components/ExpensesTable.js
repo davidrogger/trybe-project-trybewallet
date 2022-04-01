@@ -22,8 +22,21 @@ class ExpensesTable extends Component {
           <td>{ exchangeValue }</td>
           <td>Real</td>
           <td>
-            <button type="button">Editar</button>
-            <button type="button">Excluir</button>
+            <button
+              type="button"
+              className="btn btn-outline-info btn-sm"
+            >
+              Editar
+
+            </button>
+            <button
+              type="button"
+              data-testid="delete-btn"
+              className="btn btn-outline-danger btn-sm"
+            >
+              Excluir
+
+            </button>
           </td>
         </tr>
       );
@@ -32,7 +45,7 @@ class ExpensesTable extends Component {
 
   render() {
     return (
-      <table className="table table-dark table-sm table-striped">
+      <table className="tabel-container table table-dark table-sm table-striped">
         <thead>
           <tr>
             <th>Descrição</th>
