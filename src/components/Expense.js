@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Input from './Input';
+import Select from './Select';
 
 const METHODS = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
 const CATEGORIES = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -15,9 +16,9 @@ class Expense extends Component {
     this.state = {
       value: '',
       description: '',
-      currencie: '',
+      currency: '',
       method: '',
-      category: '',
+      tag: '',
     };
   }
 
@@ -28,19 +29,8 @@ class Expense extends Component {
     });
   }
 
-  selectList = (itemList, name) => itemList.map((item, index) => (
-    <option
-      key={ `${index}-${item}` }
-      value={ item }
-      name={ name }
-    >
-      {item}
-
-    </option>
-  ))
-
   render() {
-    const { value, description, currencie, method, category } = this.state;
+    const { value, description, currency, method, tag } = this.state;
     const { currencies } = this.props;
     return (
       <div className="expense-container">
@@ -52,30 +42,29 @@ class Expense extends Component {
           value={ value }
         />
 
-        <select
-          name="currencie"
-          value={ currencie }
+        <Select
+          name="currency"
+          value={ currency }
           onChange={ this.inputHandler }
-        >
-          {this.selectList(currencies, 'currencie')}
-        </select>
+          options={ currencies }
+          placeholder="Moeda"
+        />
 
-        <select
-          data-testid="method-input"
+        <Select
           name="method"
           value={ method }
           onChange={ this.inputHandler }
-        >
-          {this.selectList(METHODS, 'method')}
-        </select>
+          options={ METHODS }
+          placeholder="Pagamento"
+        />
 
-        <select
-          name="category"
-          value={ category }
+        <Select
+          name="tag"
+          value={ tag }
           onChange={ this.inputHandler }
-        >
-          {this.selectList(CATEGORIES, 'category')}
-        </select>
+          options={ CATEGORIES }
+          placeholder="Categoria"
+        />
 
         <Input
           name="description"
