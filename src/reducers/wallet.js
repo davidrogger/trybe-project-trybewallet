@@ -15,7 +15,8 @@ export const wallet = (state = INITIAL_STATE, action) => {
   case ADD_EXPENSE:
     return {
       ...state,
-      expenses: [...state.expenses, action.expense],
+      expenses: [...state.expenses,
+        { ...action.expenses, exchangeRates: action.exchangeRates }],
     };
   default:
     return state;

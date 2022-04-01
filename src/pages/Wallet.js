@@ -11,7 +11,7 @@ import Expense from '../components/Expense';
 class Wallet extends React.Component {
   componentDidMount() {
     const { getApiResponse } = this.props;
-    getApiResponse();
+    getApiResponse('currencies');
   }
 
   render() {
@@ -36,7 +36,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getApiResponse: () => dispatch(fetchAPI()),
+  getApiResponse: (currency) => dispatch(fetchAPI(currency)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

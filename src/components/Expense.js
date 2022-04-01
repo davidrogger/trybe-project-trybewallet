@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import { addExpense } from '../actions';
+import { fetchAPI } from '../actions';
 
 import Input from './Input';
 import Select from './Select';
@@ -18,9 +18,9 @@ class Expense extends Component {
     this.state = {
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     };
   }
 
@@ -31,6 +31,12 @@ class Expense extends Component {
     });
   }
 
+  sentExpenseToStore = () => {
+    const { addExpenses } = this.props;
+    console.log('vai');
+    addExpenses('exchangeRates', this.state);
+  }
+
   render() {
     const { value, description, currency, method, tag } = this.state;
     const { currencies } = this.props;
@@ -38,7 +44,7 @@ class Expense extends Component {
       <div className="expense-container">
         <Input
           name="value"
-          type="text"
+          type="number"
           placeholder="Valor"
           onChange={ this.inputHandler }
           value={ value }
@@ -79,6 +85,7 @@ class Expense extends Component {
         <button
           type="button"
           className="btn btn-warning"
+          onClick={ this.sentExpenseToStore }
         >
           Adicionar despesa
 
@@ -98,7 +105,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addExpense: (expense) => dispatch(addExpense(expense)),
+  addExpenses: (type, expense) => dispatch(fetchAPI(type, expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expense);

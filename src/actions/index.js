@@ -6,14 +6,21 @@ export const getUserEmail = (email) => ({ type: GET_USER_EMAIL, email });
 
 export const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, currencies });
 
-export const addExpense = (expenses) => ({ type: ADD_EXPENSE, expenses });
+export const addExpense = (expenses, exchangeRates) => (
+  { type: ADD_EXPENSE, expenses, exchangeRates });
 
-export const fetchAPI = () => async (dispatch) => {
+export const fetchAPI = (type, expenseData) => async (dispatch) => {
   try {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await response.json();
     const currencies = Object.keys(data).filter((currencie) => currencie !== 'USDT');
-    return dispatch(getCurrencies(currencies));
+    const exchangeRates = currencies.reduce((acc, codeName) => {
+      const { code, name, ask } = data[codeName];
+      acc[codeName] = { code, name, ask };
+      return acc;
+    }, {});
+    if (type === 'currencies') return dispatch(getCurrencies(currencies));
+    if (type === 'exchangeRates') return dispatch(addExpense(expenseData, exchangeRates));
   } catch (error) {
     console.log(`Erro encontrado: ${error}`);
   }
