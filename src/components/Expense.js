@@ -25,16 +25,14 @@ class Expense extends Component {
     });
   }
 
-  currencieList = () => {
-    const { currencies } = this.props;
-
-    return currencies.map((currencie, index) => (
+  selectList = (itemList, name) => {
+    return itemList.map((item, index) => (
       <option
-        key={ `${index}-${currencie}` }
-        value={ currencie }
-        name="currencie"
+        key={ `${index}-${item}` }
+        value={ item }
+        name={ name }
       >
-        {currencie}
+        {item}
 
       </option>
     ));
@@ -42,6 +40,7 @@ class Expense extends Component {
 
   render() {
     const { value, description, currencie, method, category } = this.state;
+    const { currencies } = this.props;
     return (
       <div className="expense-container">
         <Input
@@ -55,8 +54,9 @@ class Expense extends Component {
         <select
           name="currencie"
           value={ currencie }
-          onChange={ this.inputHandler }>
-          {this.currencieList()}
+          onChange={ this.inputHandler }
+        >
+          {this.selectList(currencies, 'currencie')}
         </select>
 
         <Input
