@@ -3,6 +3,7 @@ import { GET_CURRENCIES, ADD_EXPENSE, REMOVE_EXPENSE } from '../actions';
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  editBtn: false,
 };
 
 export const wallet = (state = INITIAL_STATE, action) => {

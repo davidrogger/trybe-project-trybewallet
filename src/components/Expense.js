@@ -46,7 +46,7 @@ class Expense extends Component {
 
   render() {
     const { value, description, currency, method, tag } = this.state;
-    const { currencies } = this.props;
+    const { currencies, editBtn } = this.props;
     return (
       <div className="expense-container">
         <Input
@@ -94,7 +94,9 @@ class Expense extends Component {
           className="btn btn-warning"
           onClick={ this.sentExpenseToStore }
         >
-          Adicionar despesa
+          {editBtn ? 'Editar' : 'Adicionar'}
+          {' '}
+          despesa
 
         </button>
 
@@ -105,10 +107,12 @@ class Expense extends Component {
 
 Expense.propTypes = {
   currencies: PropTypes.string,
+  editBtn: PropTypes.bool,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  editBtn: state.wallet.editBtn,
 });
 
 const mapDispatchToProps = (dispatch) => ({

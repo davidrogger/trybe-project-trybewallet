@@ -26,6 +26,7 @@ class ExpensesTable extends Component {
           <td>
             <button
               type="button"
+              data-testid="edit-btn"
               className="btn btn-outline-info btn-sm"
             >
               Editar
