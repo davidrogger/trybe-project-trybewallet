@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   editBtn: false,
-  expenseSelected: '',
+  expenseSelected: {},
 };
 
 export const wallet = (state = INITIAL_STATE, action) => {
@@ -32,27 +32,28 @@ export const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       editBtn: true,
-      expenseSelected: action.id,
+      expenseSelected: action.selectedExpense,
     };
   case DISABLE_EDIT_BUTTON:
     return {
       ...state,
       editBtn: false,
-      expenseSelected: '',
+      expenseSelected: {},
     };
   case EDIT_EXPENSE: {
     const expenseLength = state.expenses.length;
     const expenseIndex = state.expenses.findIndex(({ id }) => id === action.id);
     const beforeExpense = state.expenses.slice(0, expenseIndex);
     const afterExpense = state.expenses.slice(expenseIndex + 1, expenseLength);
-    const editedExpense = { ...action.expense,
+    const editedExpense = { ...action.expenses,
       id: action.id,
       exchangeRates: action.exchangeRates };
-    const expenses = [...beforeExpense, ...editedExpense, ...afterExpense];
-
+    const expenses = [...beforeExpense, editedExpense, ...afterExpense];
     return {
       ...state,
       expenses,
+      editBtn: false,
+      expenseSelected: {},
     };
   }
   default:

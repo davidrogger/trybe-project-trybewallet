@@ -7,7 +7,6 @@ import { fetchAPI } from '../actions';
 
 import Header from '../components/Header';
 import Expense from '../components/Expense';
-import ExpensesTable from '../components/ExpensesTable';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -23,7 +22,6 @@ class Wallet extends React.Component {
       <div>
         <Header />
         <Expense />
-        <ExpensesTable />
       </div>
     );
   }

@@ -13,12 +13,13 @@ export const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, currencies
 export const addExpense = (expenses, exchangeRates) => (
   { type: ADD_EXPENSE, expenses, exchangeRates });
 
-export const editExpense = (id, expenses, exchangeRates) => (
+export const editExpense = (expenses, exchangeRates, id) => (
   { type: EDIT_EXPENSE, id, expenses, exchangeRates });
 
 export const removeExpense = (id) => ({ type: REMOVE_EXPENSE, id });
 
-export const activeEditButton = (id) => ({ type: ACTIVE_EDIT_BUTTON, id });
+export const activeEditButton = (selectedExpense) => (
+  { type: ACTIVE_EDIT_BUTTON, selectedExpense });
 
 export const disableEditButton = () => ({ type: DISABLE_EDIT_BUTTON });
 
@@ -33,7 +34,7 @@ export const fetchAPI = (type, expenseData, id) => async (dispatch) => {
     // }, {});
     if (type === 'currencies') return dispatch(getCurrencies(currencies));
     if (type === 'addExpense') return dispatch(addExpense(expenseData, data));
-    if (type === 'editExpense') return dispatch(editExpense(id, expenseData, data));
+    if (type === 'editExpense') return dispatch(editExpense(expenseData, data, id));
   } catch (error) {
     console.log(`Erro encontrado: ${error}`);
   }

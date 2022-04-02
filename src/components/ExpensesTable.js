@@ -3,28 +3,31 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import { removeExpense, activeEditButton } from '../actions';
+import { removeExpense, activeEditButton, disableEditButton } from '../actions';
 
 class ExpensesTable extends Component {
-  pressEditBtn = (id) => {
-    const { activeEdition, editBtn } = this.props;
+  pressEditBtn =async (expense) => {
+    const { activeEdition, disableEdition, editBtn, getEditState } = this.props;
 
     if (editBtn) {
-      console.log('não implementado ainda');
+      disableEdition();
     } else {
-      activeEdition(id);
+      await activeEdition(expense);
+      getEditState();
     }
   }
 
   renderExpenses = () => {
-    const { expenses, removeExpenseById, SelectedId } = this.props;
-    return expenses.map(({ id, value, description, currency, method, tag,
-      exchangeRates }) => {
+    const { expenses, removeExpenseById, expenseSelected = { id: 'none' } } = this.props;
+    return expenses.map((expense) => {
+      const { id, value, description, currency, method, tag,
+        exchangeRates } = expense;
       const coin = exchangeRates[currency].name;
       const exchangeRate = Number(exchangeRates[currency].ask).toFixed(2);
       const exchangeValue = (value * Number(exchangeRates[currency].ask)).toFixed(2);
+
       return (
-        <tr key={ id } className={ SelectedId === id ? 'table-active' : '' }>
+        <tr key={ id } className={ expenseSelected.id === id ? 'table-active' : '' }>
           <td>{ description }</td>
           <td>{ tag }</td>
           <td>{ method }</td>
@@ -38,7 +41,7 @@ class ExpensesTable extends Component {
               type="button"
               data-testid="edit-btn"
               className="btn btn-outline-info btn-sm"
-              onClick={ () => this.pressEditBtn(id) }
+              onClick={ () => this.pressEditBtn(expense) }
             >
               Editar
 
@@ -88,13 +91,14 @@ ExpensesTable.propTypes = {
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
-  SelectedId: state.wallet.expenseSelected,
+  expenseSelected: state.wallet.expenseSelected,
   editBtn: state.wallet.editBtn,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   removeExpenseById: (id) => dispatch(removeExpense(id)),
   activeEdition: (id) => dispatch(activeEditButton(id)),
+  disableEdition: () => dispatch((disableEditButton())),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);
