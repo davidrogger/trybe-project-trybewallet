@@ -44,6 +44,10 @@ class Expense extends Component {
     }));
   }
 
+  editExpenseToStore = () => {
+    console.log('edit');
+  }
+
   render() {
     const { value, description, currency, method, tag } = this.state;
     const { currencies, editBtn } = this.props;
@@ -92,7 +96,7 @@ class Expense extends Component {
         <button
           type="button"
           className="btn btn-warning"
-          onClick={ this.sentExpenseToStore }
+          onClick={ editBtn ? this.editExpenseToStore : this.sentExpenseToStore }
         >
           {editBtn ? 'Editar' : 'Adicionar'}
           {' '}
