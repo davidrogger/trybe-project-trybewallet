@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   editBtn: false,
+  expenseSelected: '',
 };
 
 export const wallet = (state = INITIAL_STATE, action) => {
@@ -31,11 +32,13 @@ export const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       editBtn: true,
+      expenseSelected: action.id,
     };
   case DISABLE_EDIT_BUTTON:
     return {
       ...state,
       editBtn: false,
+      expenseSelected: '',
     };
   case EDIT_EXPENSE: {
     const expenseLength = state.expenses.length;

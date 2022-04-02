@@ -18,9 +18,9 @@ export const editExpense = (id, expenses, exchangeRates) => (
 
 export const removeExpense = (id) => ({ type: REMOVE_EXPENSE, id });
 
-export const activeEditButton = ({ type: ACTIVE_EDIT_BUTTON });
+export const activeEditButton = (id) => ({ type: ACTIVE_EDIT_BUTTON, id });
 
-export const disableEditButton = ({ type: DISABLE_EDIT_BUTTON });
+export const disableEditButton = () => ({ type: DISABLE_EDIT_BUTTON });
 
 export const fetchAPI = (type, expenseData, id) => async (dispatch) => {
   try {
