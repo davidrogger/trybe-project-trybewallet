@@ -1,4 +1,6 @@
-import { GET_CURRENCIES, ADD_EXPENSE, REMOVE_EXPENSE } from '../actions';
+import { GET_CURRENCIES, ADD_EXPENSE, REMOVE_EXPENSE,
+  ACTIVE_EDIT_BUTTON, 
+  DISABLE_EDIT_BUTTON} from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -26,6 +28,16 @@ export const wallet = (state = INITIAL_STATE, action) => {
       expenses,
     };
   }
+  case ACTIVE_EDIT_BUTTON:
+    return {
+      ...state,
+      editBtn: true,
+    };
+  case DISABLE_EDIT_BUTTON:
+    return {
+      ...state,
+      editBtn: false,
+    };
   default:
     return state;
   }
