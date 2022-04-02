@@ -4,6 +4,7 @@ export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 export const ACTIVE_EDIT_BUTTON = 'ACTIVE_EDIT_BUTTON';
 export const DISABLE_EDIT_BUTTON = 'DISABLE_EDIT_BUTTON';
+export const EDIT_EXPENSE = 'EDIT_EXPENSE';
 
 export const getUserEmail = (email) => ({ type: GET_USER_EMAIL, email });
 
@@ -12,13 +13,16 @@ export const getCurrencies = (currencies) => ({ type: GET_CURRENCIES, currencies
 export const addExpense = (expenses, exchangeRates) => (
   { type: ADD_EXPENSE, expenses, exchangeRates });
 
+export const editExpense = (id, expenses, exchangeRates) => (
+  { type: EDIT_EXPENSE, id, expenses, exchangeRates });
+
 export const removeExpense = (id) => ({ type: REMOVE_EXPENSE, id });
 
 export const activeEditButton = ({ type: ACTIVE_EDIT_BUTTON });
 
 export const disableEditButton = ({ type: DISABLE_EDIT_BUTTON });
 
-export const fetchAPI = (type, expenseData) => async (dispatch) => {
+export const fetchAPI = (type, expenseData, id) => async (dispatch) => {
   try {
     const response = await fetch('https://economia.awesomeapi.com.br/json/all');
     const data = await response.json();
@@ -28,7 +32,8 @@ export const fetchAPI = (type, expenseData) => async (dispatch) => {
     //   return acc;
     // }, {});
     if (type === 'currencies') return dispatch(getCurrencies(currencies));
-    if (type === 'exchangeRates') return dispatch(addExpense(expenseData, data));
+    if (type === 'addExpense') return dispatch(addExpense(expenseData, data));
+    if (type === 'editExpense') return dispatch(editExpense(id, expenseData, data));
   } catch (error) {
     console.log(`Erro encontrado: ${error}`);
   }

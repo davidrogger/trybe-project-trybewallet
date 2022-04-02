@@ -35,7 +35,7 @@ class Expense extends Component {
   sentExpenseToStore = () => {
     const { addExpenses } = this.props;
 
-    addExpenses('exchangeRates', this.state);
+    addExpenses('addExpense', this.state);
 
     this.setState((prevState) => ({
       id: prevState.id + 1,

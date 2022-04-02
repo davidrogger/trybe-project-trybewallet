@@ -1,6 +1,5 @@
 import { GET_CURRENCIES, ADD_EXPENSE, REMOVE_EXPENSE,
-  ACTIVE_EDIT_BUTTON, 
-  DISABLE_EDIT_BUTTON} from '../actions';
+  ACTIVE_EDIT_BUTTON, DISABLE_EDIT_BUTTON, EDIT_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -38,6 +37,21 @@ export const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       editBtn: false,
     };
+  case EDIT_EXPENSE: {
+    const expenseLength = state.expenses.length;
+    const expenseIndex = state.expenses.findIndex(({ id }) => id === action.id);
+    const beforeExpense = state.expenses.slice(0, expenseIndex);
+    const afterExpense = state.expenses.slice(expenseIndex + 1, expenseLength);
+    const editedExpense = { ...action.expense,
+      id: action.id,
+      exchangeRates: action.exchangeRates };
+    const expenses = [...beforeExpense, ...editedExpense, ...afterExpense];
+
+    return {
+      ...state,
+      expenses,
+    };
+  }
   default:
     return state;
   }
