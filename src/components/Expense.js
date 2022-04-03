@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
-import { fetchAPI } from '../actions';
+import { fetchAPI, editExpense } from '../actions';
 
 import Input from './Input';
 import Select from './Select';
@@ -17,13 +17,28 @@ class Expense extends Component {
     super(props);
 
     this.state = {
-      id: 0,
+      id: null,
+      value: '',
+      description: '',
+      currency: '',
+      method: '',
+      tag: '',
+    };
+  }
+
+  componentDidMount() {
+    this.cleanFormsState();
+  }
+
+  cleanFormsState =() => {
+    this.setState((prevState) => ({
+      id: prevState.id === null ? 0 : prevState.id + 1,
       value: '',
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
-    };
+    }));
   }
 
   inputHandler = ({ target }) => {
@@ -38,25 +53,25 @@ class Expense extends Component {
 
     addExpenses('addExpense', this.state);
 
-    this.setState((prevState) => ({
-      id: prevState.id + 1,
-      value: '',
-      description: '',
-    }));
+    this.cleanFormsState();
   }
 
   editExpenseToStore = () => {
-    const { expenseSelected, addExpenses } = this.props;
+    const { expenseSelected, editingExpense } = this.props;
 
-    addExpenses('editExpense', this.state, expenseSelected.id);
+    const editedExpense = { ...this.state, id: expenseSelected.id };
+
+    editingExpense(expenseSelected, editedExpense);
+
+    this.cleanFormsState();
   }
 
   getEditState = () => {
     const { expenseSelected } = this.props;
 
-    const { id, value, description, currency, method, tag } = expenseSelected;
+    const { value, description, currency, method, tag } = expenseSelected;
 
-    this.setState({ id, value, description, currency, method, tag });
+    this.setState({ value, description, currency, method, tag });
   }
 
   render() {
@@ -136,6 +151,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addExpenses: (type, expense, id) => dispatch(fetchAPI(type, expense, id)),
+  editingExpense: (expense, editInfo) => dispatch(editExpense(expense, editInfo)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Expense);
