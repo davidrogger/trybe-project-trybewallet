@@ -42,12 +42,12 @@ export const wallet = (state = INITIAL_STATE, action) => {
     };
   case EDIT_EXPENSE: {
     const expenseLength = state.expenses.length;
-    const expenseIndex = state.expenses.findIndex(({ id }) => id === action.id);
+    const expenseIndex = state.expenses.findIndex(({ id }) => id === action.expense.id);
     const beforeExpense = state.expenses.slice(0, expenseIndex);
     const afterExpense = state.expenses.slice(expenseIndex + 1, expenseLength);
-    const editedExpense = { ...action.expenses,
-      id: action.id,
-      exchangeRates: action.exchangeRates };
+    const editedExpense = { ...action.editInfo,
+      id: action.expense.id,
+      exchangeRates: action.expense.exchangeRates };
     const expenses = [...beforeExpense, editedExpense, ...afterExpense];
     return {
       ...state,
