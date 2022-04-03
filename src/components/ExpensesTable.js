@@ -27,7 +27,10 @@ class ExpensesTable extends Component {
       const exchangeValue = (value * Number(exchangeRates[currency].ask)).toFixed(2);
 
       return (
-        <tr key={ id } className={ expenseSelected.id === id ? 'table-active' : '' }>
+        <tr
+          key={ id }
+          className={ expenseSelected.id === id ? 'table-active' : 'table-dark' }
+        >
           <td>{ description }</td>
           <td>{ tag }</td>
           <td>{ method }</td>
@@ -66,11 +69,11 @@ class ExpensesTable extends Component {
       <table className="table-container table table-dark table-sm table-hover">
         <thead>
           <tr>
-            <th className="description-column">Descrição</th>
+            <th>Descrição</th>
             <th>Tag</th>
             <th>Método de pagamento</th>
             <th>Valor</th>
-            <th className="coin-column">Moeda</th>
+            <th>Moeda</th>
             <th>Câmbio utilizado</th>
             <th>Valor convertido</th>
             <th>Moeda de conversão</th>
