@@ -26,19 +26,18 @@ class ExpensesTable extends Component {
       const exchangeRate = Number(exchangeRates[currency].ask).toFixed(2);
       const exchangeValue = (value * Number(exchangeRates[currency].ask)).toFixed(2);
 
+      const expenseValues = [
+        description, tag, method, Number(value).toFixed(2),
+        coin, exchangeRate, exchangeValue, 'Real',
+      ];
+
       return (
         <tr
           key={ id }
           className={ expenseSelected.id === id ? 'table-active table-sm' : 'table-sm' }
         >
-          <td>{ description }</td>
-          <td>{ tag }</td>
-          <td>{ method }</td>
-          <td>{ Number(value).toFixed(2) }</td>
-          <td>{ coin }</td>
-          <td>{ exchangeRate }</td>
-          <td>{ exchangeValue }</td>
-          <td>Real</td>
+          {expenseValues
+            .map((expenseValue, index) => (<td key={ index }>{expenseValue}</td>))}
           <td>
             <button
               type="button"
@@ -47,8 +46,8 @@ class ExpensesTable extends Component {
               onClick={ () => this.pressEditBtn(expense) }
             >
               Editar
-
             </button>
+
             <button
               type="button"
               data-testid="delete-btn"
@@ -56,8 +55,8 @@ class ExpensesTable extends Component {
               onClick={ () => removeExpenseById(id) }
             >
               Excluir
-
             </button>
+
           </td>
         </tr>
       );
