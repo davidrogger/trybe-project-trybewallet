@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/trybe-project-trybewallet/static/css/main.b14f975e.chunk.css",
+    "main.js": "/trybe-project-trybewallet/static/js/main.42ba82bb.chunk.js",
+    "main.js.map": "/trybe-project-trybewallet/static/js/main.42ba82bb.chunk.js.map",
+    "runtime-main.js": "/trybe-project-trybewallet/static/js/runtime-main.ad2de22f.js",
+    "runtime-main.js.map": "/trybe-project-trybewallet/static/js/runtime-main.ad2de22f.js.map",
+    "static/js/2.c4370cc0.chunk.js": "/trybe-project-trybewallet/static/js/2.c4370cc0.chunk.js",
+    "static/js/2.c4370cc0.chunk.js.map": "/trybe-project-trybewallet/static/js/2.c4370cc0.chunk.js.map",
+    "index.html": "/trybe-project-trybewallet/index.html",
+    "precache-manifest.eb50759ec344a3ecf1ebd24084a61510.js": "/trybe-project-trybewallet/precache-manifest.eb50759ec344a3ecf1ebd24084a61510.js",
+    "service-worker.js": "/trybe-project-trybewallet/service-worker.js",
+    "static/css/main.b14f975e.chunk.css.map": "/trybe-project-trybewallet/static/css/main.b14f975e.chunk.css.map",
+    "static/js/2.c4370cc0.chunk.js.LICENSE.txt": "/trybe-project-trybewallet/static/js/2.c4370cc0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ad2de22f.js",
+    "static/js/2.c4370cc0.chunk.js",
+    "static/css/main.b14f975e.chunk.css",
+    "static/js/main.42ba82bb.chunk.js"
+  ]
+}
