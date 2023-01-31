@@ -123,13 +123,10 @@ class Expense extends Component {
 
           <button
             type="button"
-            className="btn btn-warning"
+            className="btn btn-warning m-2"
             onClick={ editBtn ? this.editExpenseToStore : this.sentExpenseToStore }
           >
-            {editBtn ? 'Editar' : 'Adicionar'}
-            {' '}
-            despesa
-
+            {`${editBtn ? 'Editar' : 'Adicionar'} despesa`}
           </button>
         </div>
         <ExpensesTable getEditState={ this.getEditState } />

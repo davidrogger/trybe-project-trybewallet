@@ -57,3 +57,7 @@
 .table-container button {
   margin: 2px;
 }
+
+.expense-container button {
+  max-height: 58px;
+}
