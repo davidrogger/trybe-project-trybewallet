@@ -73,7 +73,7 @@ class Login extends React.Component {
             <div className="d-grid col-6 mx-auto">
               <button
                 type="button"
-                className="btn btn-warning btn-lg"
+                className="btn btn-warning btn-lg cursor-na"
                 onClick={ this.loginHandler }
                 disabled={ btnDisabled }
               >
