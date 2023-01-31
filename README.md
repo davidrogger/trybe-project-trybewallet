@@ -1,7 +1,7 @@
 # Sobre
 
 ## Seção: `Gerenciamento de estado com Redux`
-- lore
+- Durante seções anteriores foi identificado um problema muito grande com relação a visualização do estado para diversos componentes, onde era preciso passar de componentes pai para filho via props o estados gerando prop drilling, que é algo bagunçado e confuso se forem muitos componentes entre outros diversos problemas, nessa seção aprendi a configurar e usar um gerenciador de estado o Redux, onde fica muito mais simples centralizar informações nele, e acessar os estados.
 #
 <div align="center">
   <a href="https://davidrogger.github.io/trybe-project-trybewallet">
@@ -14,7 +14,8 @@
 >*clique na imagem para acesso online do projeto*
 #
 ## Projeto: `Trybewallet`
-- lore
+
+- Projeto cria uma carteira de conversão, usando uma API de câmbio de moeda, é possivel adicionar uma despesa com valores e uma moeda de escolha, listando despesa por despesa, e calculando a conversão final para reais. Pode-se editar a despesa e exclui-la após sua inserção.
 
 # Tecnologias e ferramentas usadas 🛠
 
@@ -24,11 +25,11 @@
 
 # Desafios
 
-- lore
+- Durante toda a seção e desenvolvimento do projeto, o redux em sua versão de classe é uma receita de bolo, onde precisamos entender os métodos necessários para fazer ele funcionar, tornando bem extenso sua configuração, configurar componente por componente mapeamento as propriedades do estado.
 
 # Conclusão
 
-- lore
+- Fica bem mais simples de acessar e manipular os estados, antes era aquela cascata enorme passando propriedades de componentes por componentes para ter acesso aquela informação, apesar de extenso redux facilita e mantem o estado bem organizado e acessivel.
 
 </details>
 
