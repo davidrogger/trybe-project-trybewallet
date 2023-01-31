@@ -21,11 +21,13 @@
 
 ![React.js](https://img.shields.io/badge/-React.js-61DAFB?style=flat-square&logo=react&logoColor=ffffff)
 ![Redux](https://img.shields.io/badge/-Redux-7248b6?style=flat-square&logo=redux&logoColor=fff&textColor=black)
+![Bootostrap](https://img.shields.io/badge/-Bootstrap-7248b6?style=flat-square&logo=bootstrap&logoColor=fff&textColor=black)
 
 
 # Desafios
 
 - Durante toda a seção e desenvolvimento do projeto, o redux em sua versão de classe é uma receita de bolo, onde precisamos entender os métodos necessários para fazer ele funcionar, tornando bem extenso sua configuração, configurar componente por componente mapeamento as propriedades do estado.
+- Durante o desenvolvimento mesclei o uso do bootstrap com css file, para analisar a eficiencia do mesmo, minha visão inicial é que ele acaba deixando muito texto dentro da do código do projeto, poluindo muito o código. Como a baixa familiaridade com o uso do mesmo, acabou consumindo mais tempo, pois foi necessária a leitura da documentação, para entender qual classe era necessária e como ele funcionava.
 
 # Conclusão
 
