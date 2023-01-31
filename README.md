@@ -27,7 +27,7 @@
 # Desafios
 
 - Durante toda a seção e desenvolvimento do projeto, o redux em sua versão de classe é uma receita de bolo, onde precisamos entender os métodos necessários para fazer ele funcionar, tornando bem extenso sua configuração, configurar componente por componente mapeamento as propriedades do estado.
-- Durante o desenvolvimento mesclei o uso do bootstrap com css file, para analisar a eficiencia do mesmo, minha visão inicial é que ele acaba deixando muito texto dentro da do código do projeto, poluindo muito o código. Como a baixa familiaridade com o uso do mesmo, acabou consumindo mais tempo, pois foi necessária a leitura da documentação, para entender qual classe era necessária e como ele funcionava.
+- Durante o desenvolvimento mesclei o uso do bootstrap com css file, para analisar a eficiencia do mesmo, minha visão inicial é que ele acaba deixando muito texto dentro da do código do projeto, poluindo muito o código. Como a baixa familiaridade com o uso do mesmo, acabou consumindo mais tempo, pois foi necessária a leitura da documentação, para entender qual classe era necessária e como ele funcionava, usar as funcionalidades e efeitos padrão do bootstrap foram bem interessantes, como o text floating, onde o texto fica flutuando dentro do input de texto, e ao acessar o input esse texto é reduzido e redimensionado no canto superior do input, alguns efeitos de houver nos botões e da tabela, provavelmente fazendo no css puro demorariam mais, fora ter um conhecimento mais vasto, pois me deparei com essas configurações e efeitos olhando a documentação e adotei-as para teste.
 
 # Conclusão
 
