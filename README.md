@@ -43,7 +43,16 @@
 ### Requisitos
 *Nome* | *Avaliação*
 --- | :---:
-1 - lore | :heavy_check_mark:
+1 - Crie uma página inicial de login com os seguintes campos e características: | :heavy_check_mark:
+2 - Crie uma página para sua carteira com as seguintes características: | :heavy_check_mark:
+3 - Crie um header para a página de carteira contendo as seguintes características: | :heavy_check_mark:
+4 - Implemente a lógica para armazenar no estado global as siglas das moedas que vêm da API | :heavy_check_mark:
+5 - Desenvolva um formulário para adicionar uma despesa contendo as seguintes características:| :heavy_check_mark:
+6 - Salve todas as informações do formulário no estado global | :heavy_check_mark:
+7 - Desenvolva uma tabela com os gastos contendo as seguintes características: | :heavy_check_mark:
+8 - Implemente a lógica para que a tabela seja alimentada pelo estado da aplicação | :heavy_check_mark:
+9 - Crie um botão para deletar uma despesa da tabela contendo as seguintes características: | :heavy_check_mark:
+10 - Crie um botão para editar uma despesa da tabela contendo as seguintes características: | :heavy_check_mark:
 
 </details>
 
