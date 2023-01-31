@@ -16,7 +16,7 @@ class Select extends Component {
   render() {
     const { name, value, onChange, options, placeholder } = this.props;
     return (
-      <div className="form-floating">
+      <div className="form-floating  m-1">
         <select
           data-testid={ `${name}-input` }
           id={ `${name}-id` }
