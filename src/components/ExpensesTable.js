@@ -29,7 +29,7 @@ class ExpensesTable extends Component {
       return (
         <tr
           key={ id }
-          className={ expenseSelected.id === id ? 'table-active' : 'table-dark' }
+          className={ expenseSelected.id === id ? 'table-active table-sm' : 'table-sm' }
         >
           <td>{ description }</td>
           <td>{ tag }</td>
