@@ -5,7 +5,7 @@ class Input extends Component {
   render() {
     const { name, type, value, placeholder, onChange } = this.props;
     return (
-      <div className="form-floating">
+      <div className="form-floating  m-2">
         <input
           data-testid={ `${name}-input` }
           name={ name }
