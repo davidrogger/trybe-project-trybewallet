@@ -10,7 +10,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="trybe-project-trybewallet">
     <Provider store={ store }>
       <App />
     </Provider>
